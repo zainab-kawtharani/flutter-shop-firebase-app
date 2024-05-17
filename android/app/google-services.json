@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "88906174066",
+    "project_id": "test-app-1fdbc",
+    "storage_bucket": "test-app-1fdbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88906174066:android:96cc026935ed71ef7ebceb",
+        "android_client_info": {
+          "package_name": "com.zeinabshop.shop_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByX-a1kPKEdiUtZYK1JCWLQt8VkIlx7HM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
