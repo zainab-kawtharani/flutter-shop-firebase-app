@@ -103,234 +103,237 @@ class _ItemDetailsState extends State<ItemDetails> {
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tapedSize2 = !tapedSize2;
-                        });
-                      },
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                          color: tapedSize2 ? Colors.white : Colors.orange,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.orange),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "37",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            tapedSize2 = !tapedSize2;
+                          });
+                        },
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: tapedSize2 ? Colors.white : Colors.orange,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.orange),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "37",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tapedSize1 = !tapedSize1;
-                        });
-                      },
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                          color: tapedSize1 ? Colors.white : Colors.orange,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.orange),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "38",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            tapedSize1 = !tapedSize1;
+                          });
+                        },
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: tapedSize1 ? Colors.white : Colors.orange,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.orange),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "38",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tapedSize3 = !tapedSize3;
-                        });
-                      },
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                          color: tapedSize3 ? Colors.white : Colors.orange,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.orange),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "39",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            tapedSize3 = !tapedSize3;
+                          });
+                        },
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: tapedSize3 ? Colors.white : Colors.orange,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.orange),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "39",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tapedSize4 = !tapedSize4;
-                        });
-                      },
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                          color: tapedSize4 ? Colors.white : Colors.orange,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.orange),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "40",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            tapedSize4 = !tapedSize4;
+                          });
+                        },
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: tapedSize4 ? Colors.white : Colors.orange,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.orange),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "40",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tapedSize5 = !tapedSize5;
-                        });
-                      },
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                          color: tapedSize5 ? Colors.white : Colors.orange,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.orange),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "41",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            tapedSize5 = !tapedSize5;
+                          });
+                        },
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: tapedSize5 ? Colors.white : Colors.orange,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.orange),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "41",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tapedSize6 = !tapedSize6;
-                        });
-                      },
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                          color: tapedSize6 ? Colors.white : Colors.orange,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.orange),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "42",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            tapedSize6 = !tapedSize6;
+                          });
+                        },
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: tapedSize6 ? Colors.white : Colors.orange,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.orange),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "42",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tapedSize7 = !tapedSize7;
-                        });
-                      },
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                          color: tapedSize7 ? Colors.white : Colors.orange,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.orange),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "43",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            tapedSize7 = !tapedSize7;
+                          });
+                        },
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: tapedSize7 ? Colors.white : Colors.orange,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.orange),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "43",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tapedSize8 = !tapedSize8;
-                        });
-                      },
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: BoxDecoration(
-                          color: tapedSize8 ? Colors.white : Colors.orange,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.orange),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "44",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            tapedSize8 = !tapedSize8;
+                          });
+                        },
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: tapedSize8 ? Colors.white : Colors.orange,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.orange),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "44",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                  ],
+                      SizedBox(
+                        width: 10,
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 20,
@@ -407,7 +410,7 @@ class _ItemDetailsState extends State<ItemDetails> {
                       height: 50,
                       child: Icon(
                         Icons.add,
-                        color: Colors.grey,
+                        color: Colors.black,
                         size: 30,
                       ),
                       decoration: BoxDecoration(
@@ -419,7 +422,7 @@ class _ItemDetailsState extends State<ItemDetails> {
                       height: 50,
                       child: Icon(
                         Icons.remove,
-                        color: Colors.grey,
+                        color: Colors.black,
                         size: 30,
                       ),
                       decoration: BoxDecoration(

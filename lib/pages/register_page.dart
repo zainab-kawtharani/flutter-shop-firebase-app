@@ -27,7 +27,6 @@ class _RegisterPageState extends State<RegisterPage> {
   bool obsecureTextConPassword = true;
 
   void registerUser() async {
-
     showDialog(
       context: context,
       builder: (context) => const Center(
@@ -35,9 +34,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
 
- 
     if (_passwordController.text != _confirmPassswordController.text) {
-
       Navigator.pop(context);
       displayMessageToUser("Password dont Match", context);
     } else {
@@ -46,7 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
             .createUserWithEmailAndPassword(
                 email: _emailController.text,
                 password: _passwordController.text);
-        Navigator.pop(context);
+        if (context.mounted) Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         Navigator.pop(context);
         if (e.code == 'email-already-in-use') {
