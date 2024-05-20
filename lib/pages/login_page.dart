@@ -16,6 +16,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool obsecureText = true;
 
   void signIn() async {
     showDialog(
@@ -31,7 +32,11 @@ class _LoginPageState extends State<LoginPage> {
       if (context.mounted) Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      displayMessageToUser(e.code, context);
+      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+        displayMessageToUser("Invalid email or password", context);
+      } else {
+        displayMessageToUser(e.code, context);
+      }
     }
   }
 
@@ -76,12 +81,21 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextFormField(
                         controller: _passwordController,
-                        obscureText: true,
+                        obscureText: obsecureText,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             prefixIcon: Icon(Iconsax.password_check),
-                            suffixIcon: Icon(Iconsax.eye_slash),
+                            suffixIcon: GestureDetector(
+                              child: Icon(obsecureText
+                                  ? Iconsax.eye_slash
+                                  : Iconsax.eye),
+                              onTap: () {
+                                setState(() {
+                                  obsecureText = !obsecureText;
+                                });
+                              },
+                            ),
                             labelText: "Password"),
                       ),
                       SizedBox(

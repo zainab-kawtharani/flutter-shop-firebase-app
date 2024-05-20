@@ -23,9 +23,11 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final TextEditingController _confirmPassswordController =
       TextEditingController();
+  bool obsecureTextPassword = true;
+  bool obsecureTextConPassword = true;
 
   void registerUser() async {
-    //loading circleprogress
+
     showDialog(
       context: context,
       builder: (context) => const Center(
@@ -33,29 +35,29 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
 
-    // check if the passwords are matching
+ 
     if (_passwordController.text != _confirmPassswordController.text) {
-      // pop prograss + error message
+
       Navigator.pop(context);
       displayMessageToUser("Password dont Match", context);
-    }else{
+    } else {
       try {
-      UserCredential? userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: _emailController.text, password: _passwordController.text);
-      Navigator.pop(context);
-
+        UserCredential? userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: _emailController.text,
+                password: _passwordController.text);
+        Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
-          Navigator.pop(context);
+        Navigator.pop(context);
+        if (e.code == 'email-already-in-use') {
+          displayMessageToUser("The email already used", context);
+        } else {
           displayMessageToUser(e.code, context);
-       }
-
+        }
+      }
     }
-    //create a new password
-    
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,12 +117,21 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       TextFormField(
                         controller: _passwordController,
-                        obscureText: true,
+                        obscureText: obsecureTextPassword,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             prefixIcon: Icon(Iconsax.password_check),
-                            suffixIcon: Icon(Iconsax.eye_slash),
+                            suffixIcon: GestureDetector(
+                              child: Icon(obsecureTextPassword
+                                  ? Iconsax.eye_slash
+                                  : Iconsax.eye),
+                              onTap: () {
+                                setState(() {
+                                  obsecureTextPassword = !obsecureTextPassword;
+                                });
+                              },
+                            ),
                             labelText: "Password"),
                       ),
                       SizedBox(
@@ -128,12 +139,22 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       TextFormField(
                         controller: _confirmPassswordController,
-                        obscureText: true,
+                        obscureText: obsecureTextConPassword,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             prefixIcon: Icon(Iconsax.password_check),
-                            suffixIcon: Icon(Iconsax.eye_slash),
+                            suffixIcon: GestureDetector(
+                              child: Icon(obsecureTextConPassword
+                                  ? Iconsax.eye_slash
+                                  : Iconsax.eye),
+                              onTap: () {
+                                setState(() {
+                                  obsecureTextConPassword =
+                                      !obsecureTextConPassword;
+                                });
+                              },
+                            ),
                             labelText: "Confirm Password"),
                       ),
                       SizedBox(
