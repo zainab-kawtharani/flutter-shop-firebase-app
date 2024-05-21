@@ -36,14 +36,14 @@ class _RegisterPageState extends State<RegisterPage> {
 
     if (_passwordController.text != _confirmPassswordController.text) {
       Navigator.pop(context);
-      displayMessageToUser("Password dont Match", context);
+      displayMessageToUser("Passwords dont Match", context);
     } else {
       try {
         UserCredential? userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
                 email: _emailController.text,
                 password: _passwordController.text);
-        if (context.mounted) Navigator.pop(context);
+        Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         Navigator.pop(context);
         if (e.code == 'email-already-in-use') {
@@ -53,6 +53,13 @@ class _RegisterPageState extends State<RegisterPage> {
         }
       }
     }
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
