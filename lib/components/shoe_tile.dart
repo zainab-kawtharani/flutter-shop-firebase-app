@@ -2,6 +2,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shop_app/models/shoe.dart';
 import 'package:shop_app/pages/item_details.dart';
 
@@ -16,6 +17,16 @@ class ShoeTile extends StatelessWidget {
         child: GestureDetector(
           onTap: () {
             // print(shoe.brand);
+
+            Get.to(
+              () => ItemDetails(
+                  brand: shoe.brand,
+                  image: shoe.image,
+                  description: shoe.description,
+                  price: shoe.price,
+                  name: shoe.name),
+            );
+            /*
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ItemDetails(
@@ -25,7 +36,7 @@ class ShoeTile extends StatelessWidget {
                     price: shoe.price,
                     name: shoe.name),
               ),
-            );
+            );*/
           },
           child: Container(
               width: 300,

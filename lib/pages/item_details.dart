@@ -30,6 +30,7 @@ class _ItemDetailsState extends State<ItemDetails> {
   bool tapedSize8 = true;
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

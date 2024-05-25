@@ -2,7 +2,9 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:shop_app/controllers/authentication_controller/signin_controller.dart';
 import 'package:shop_app/helper/helper_functions.dart';
 
 class LoginPage extends StatefulWidget {
@@ -30,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-      if (context.mounted) Navigator.pop(context);
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
@@ -50,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignInController());
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -77,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: [
                       TextFormField(
-                        controller: _emailController,
+                        controller: controller.email,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20)),
@@ -88,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 16,
                       ),
                       TextFormField(
-                        controller: _passwordController,
+                        controller: controller.password,
                         obscureText: obsecureText,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -110,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 20,
                       ),
                       GestureDetector(
-                        onTap: signIn,
+                        onTap: () => controller.signInUser(),
                         child: Container(
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(
@@ -148,9 +151,34 @@ class _LoginPageState extends State<LoginPage> {
                                   color: Color.fromARGB(255, 255, 152, 0),
                                   fontWeight: FontWeight.bold),
                             ),
-                          )
+                          ),
                         ],
-                      )
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "OR",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      GestureDetector(
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.orange,
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Login With Google',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

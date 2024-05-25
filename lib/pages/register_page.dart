@@ -1,8 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously, unused_local_variable
 
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:shop_app/controllers/authentication_controller/signup_controller.dart';
 import 'package:shop_app/helper/helper_functions.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -16,11 +21,8 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _usernameController = TextEditingController();
-
   final TextEditingController _emailController = TextEditingController();
-
   final TextEditingController _passwordController = TextEditingController();
-
   final TextEditingController _confirmPassswordController =
       TextEditingController();
   bool obsecureTextPassword = true;
@@ -64,6 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -95,10 +98,17 @@ class _RegisterPageState extends State<RegisterPage> {
               Padding(
                 padding: const EdgeInsets.all(25),
                 child: Form(
+                  key: controller.signUpFormKey,
                   child: Column(
                     children: [
                       TextFormField(
-                        controller: _usernameController,
+                        controller: controller.userName,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'username is required';
+                          }
+                          return null;
+                        },
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20)),
@@ -109,7 +119,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 16,
                       ),
                       TextFormField(
-                        controller: _emailController,
+                        controller: controller.email,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'email is required';
+                          }
+                          return null;
+                        },
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20)),
@@ -120,7 +136,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 16,
                       ),
                       TextFormField(
-                        controller: _passwordController,
+                        controller: controller.password,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'password is required';
+                          }
+                          return null;
+                        },
                         obscureText: obsecureTextPassword,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -142,7 +164,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 16,
                       ),
                       TextFormField(
-                        controller: _confirmPassswordController,
+                        controller: controller.confirmPassword,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'password is required';
+                          }
+                          return null;
+                        },
                         obscureText: obsecureTextConPassword,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -165,7 +193,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 20,
                       ),
                       GestureDetector(
-                        onTap: registerUser,
+                        onTap: () => controller.registerUser(),
+                        // SignUpController.instance.registerUser(controller.userName.text.trim(), controller.email.text.trim(), controller.password.text.trim(), controller.confirmPassword.text.trim()), //registerUser,
                         child: Container(
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(
@@ -173,8 +202,10 @@ class _RegisterPageState extends State<RegisterPage> {
                             color: Colors.orange,
                           ),
                           child: Center(
-                            child: Text(
-                              'Signup',
+                            
+                            child:  Text(
+                              
+                              "Signin",
                               style: TextStyle(
                                   fontSize: 18,
                                   color: Colors.black,

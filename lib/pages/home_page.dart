@@ -2,6 +2,8 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shop_app/controllers/authentication_controller/signout_controller.dart';
 import 'package:shop_app/pages/shop_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,6 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignoutController());
     return Scaffold(
       appBar: AppBar(
         leading: Builder(builder: (context) {
@@ -46,7 +49,8 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(left: 25),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pop(context);
+                  // Navigator.pop(context);
+                  Get.back();
                 },
                 child: ListTile(
                   leading: Icon(
@@ -62,7 +66,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: EdgeInsets.only(left: 25),
               child: GestureDetector(
-                onTap: logout,
+                onTap: () => controller.logoutUser(),
                 child: ListTile(
                   leading: Icon(
                     Icons.logout,

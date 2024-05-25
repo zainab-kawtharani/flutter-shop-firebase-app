@@ -3,8 +3,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shop_app/components/shoe_tile.dart';
 import 'package:http/http.dart' as http;
+import 'package:shop_app/controllers/apis_controller/get_all_controller.dart';
 import 'package:shop_app/models/shoe.dart';
 
 class ShopPage extends StatefulWidget {
@@ -20,13 +22,13 @@ class _ShopPageState extends State<ShopPage> {
   @override
   void initState() {
     super.initState();
-    getShoes();
+    //getShoes();
   }
 
   Future<void> getShoes() async {
     var response = await http.get(
         Uri.parse("https://663e66d7e1913c4767978ac4.mockapi.io/api/v1/Items"));
-  
+
     if (response.statusCode == 200) {
       List<dynamic> jsonData = json.decode(response.body);
       setState(() {
@@ -39,6 +41,8 @@ class _ShopPageState extends State<ShopPage> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ApiController());
+    List<Shoe> shoesList = controller.itemList;
     return Scaffold(
         body: Column(
       children: [
@@ -97,13 +101,13 @@ class _ShopPageState extends State<ShopPage> {
           height: 25,
         ),
         Expanded(
-            child: ListView.builder(
+            child:  Obx( ()=> ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: shoes.length,
+                itemCount: shoesList.length,
                 itemBuilder: (context, index) {
-                  return ShoeTile(shoe: shoes[index]);
+                  return ShoeTile(shoe: shoesList[index]);
                 }))
-      ],
+        )],
     ));
   }
 }
