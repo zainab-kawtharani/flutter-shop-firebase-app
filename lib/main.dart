@@ -4,8 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_app/auth/auth.dart';
-import 'package:shop_app/auth/login_or_register.dart';
 import 'package:shop_app/firebase_options.dart';
 import 'package:shop_app/pages/home_page.dart';
 import 'package:shop_app/repository/authentication_repository/authentication_repository.dart';

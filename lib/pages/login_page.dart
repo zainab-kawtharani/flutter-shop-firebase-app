@@ -162,6 +162,9 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(color: Colors.black),
                       ),
                       GestureDetector(
+                        onTap: () {
+                          controller.signInWithGoogle();
+                        },
                         child: Container(
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(

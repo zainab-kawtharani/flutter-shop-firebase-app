@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-//import 'package:google_sign_in/google_sign_in.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shop_app/auth/login_or_register.dart';
 import 'package:shop_app/pages/home_page.dart';
 
@@ -45,7 +45,7 @@ class AuthenticationRepository extends GetxController {
   }
 
   Future<void> logout() async => auth.signOut();
-/*
+
   Future<UserCredential?> signInWithGoole() async {
     try {
       final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
@@ -59,5 +59,5 @@ class AuthenticationRepository extends GetxController {
     } on FirebaseAuthException catch (e) {
       print(e.code);
     }
-  }*/
+  }
 }

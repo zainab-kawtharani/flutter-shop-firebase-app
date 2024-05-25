@@ -15,6 +15,6 @@ class SignInController extends GetxController {
   }
 
   void signInWithGoogle() async {
-   // final userCredential = AuthenticationRepository.instance.signInWithGoole();
+    final userCredential = AuthenticationRepository.instance.signInWithGoole();
   }
 }
